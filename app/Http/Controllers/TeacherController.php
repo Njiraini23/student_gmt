@@ -42,7 +42,7 @@ class TeacherController extends Controller
      */
     public function show(string $id): View
     {
-        $teacher = Teacher::find($id);
+        $teachers = Teacher::find($id);
         return view('teachers.show')->with('teachers', $teachers);
     }
 
@@ -51,7 +51,7 @@ class TeacherController extends Controller
      */
     public function edit(string $id): View
     {
-        $teacher = Teacher::find($id);
+        $teachers = Teacher::find($id);
         return view('teachers.edit')->with('teachers', $teachers);
     }
 
@@ -60,7 +60,7 @@ class TeacherController extends Controller
      */
     public function update(Request $request, string $id): RedirectResponse
     {
-        $teacher = Teacher::find($id);
+        $teachers = Teacher::find($id);
         $input = $request->all();
         $teachers->update($input);
         return redirect('teachers')->with('flash_message', 'Teacher Updated!');  
